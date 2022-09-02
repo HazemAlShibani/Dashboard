@@ -1,0 +1,681 @@
+:root {
+  --color-primary: #7380ec;
+  --color-danger: #ff7782;
+  --color-success: #41f1b6;
+  --color-warning: #ffbb55;
+  --color-white: #fff;
+  --color-info-dark: #7d8da1;
+  --color-info-light: #dce1eb;
+  --color-dark: #363949;
+  --color-light: rgba(132, 139, 200, 0.18);
+  --color-primary-variant: #111e88;
+  --color-dark-variant: #677483;
+  --color-background: #f6f6f9;
+  --card-border-radius: 2rem;
+  --border-radius-1: 0.4rem;
+  --border-radius-2: 0.8rem;
+  --border-radius-3: 1.2rem;
+  --card-padding: 1.8rem;
+  --padding-1: 1.2rem;
+  --box-shadow: 0 2rem 3rem var(--color-light);
+}
+
+.changing-mode {
+  --color-background: #181a1e ;
+  --color-white: #202528 ;
+  --color-dark: #edeffd ;
+  --color-dark-variant: #a3bdcc ;
+  --color-light: rgba(0, 0, 0, 0.4) ;
+  --box-shadow: 0 2rem 3rem var(--color-light);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  outline: 0;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  border: 0;
+  text-decoration: none;
+  list-style: none;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 14px;
+}
+
+body {
+  width: 100vw;
+  height: 100vh;
+  font-family: poppins, sans-serif;
+  font-size: 0.88rem;
+  background-color: var(--color-background);
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  overflow-x: hidden;
+}
+
+.container {
+  display: grid;
+  width: 96%;
+  margin: 0 auto;
+  gap: 1.8rem;
+  grid-template-columns: 14rem auto 23rem;
+}
+
+a {
+  color: var(--color-dark);
+}
+
+img {
+  display: block;
+  width: 100%;
+}
+
+h1 {
+  font-size: 1.8rem;
+  font-weight: 800;
+}
+
+h2 {
+  font-size: 1.4rem;
+}
+
+h3 {
+  font-size: 0.87rem;
+}
+
+h4 {
+  font-size: 0.8rem;
+}
+
+h5 {
+  font-size: 0.77rem;
+}
+
+small {
+  font-size: 0.75rem;
+}
+
+.profile-photo {
+  width: 2.8rem;
+  height: 2.8rem;
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+  overflow: hidden;
+}
+
+.text-muted {
+  color: var(--color-info-dark);
+}
+
+p {
+  color: var(--color-dark-variant);
+}
+
+b {
+  color: var(--color-dark);
+}
+
+.primary {
+  color: var(--color-primary) !important;
+}
+
+.danger {
+  color: var(--color-danger) !important;
+}
+
+.success {
+  color: var(--color-success) !important;
+}
+
+.warning {
+  color: var(--color-warning) !important;
+}
+
+.number {
+  color: var(--color-dark) !important;
+}
+
+.mode {
+  background-color: var(--color-primary) !important;
+  color: white;
+}
+
+/* MEDIA QUERIES */
+/* Start Side Bar */
+.container aside {
+  height: 100vh;
+}
+.container aside .top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 1.4rem;
+}
+.container aside .top .logo {
+  display: flex;
+  gap: 0.8rem;
+}
+.container aside .top .logo img {
+  width: 2rem;
+  height: 2rem;
+}
+.container aside .top .logo h2 {
+  display: flex;
+  align-items: center;
+  color: var(--color-dark);
+}
+.container aside .top .close {
+  display: none;
+  font-size: 1.5rem;
+}
+.container aside .sidebar {
+  display: flex;
+  flex-direction: column;
+  height: 86vh;
+  position: relative;
+  top: 3rem;
+}
+.container aside .sidebar a {
+  display: flex;
+  align-items: center;
+  color: var(--color-info-dark);
+  position: relative;
+  margin-left: 2rem;
+  height: 3.7rem;
+  gap: 1rem;
+  transition: all 300ms ease;
+  -webkit-transition: all 300ms ease;
+  -moz-transition: all 300ms ease;
+  -ms-transition: all 300ms ease;
+  -o-transition: all 300ms ease;
+}
+.container aside .sidebar a h3 {
+  font-weight: 500;
+}
+.container aside .sidebar a svg {
+  font-size: 1.6rem;
+  transition: all 300ms ease;
+  -webkit-transition: all 300ms ease;
+  -moz-transition: all 300ms ease;
+  -ms-transition: all 300ms ease;
+  -o-transition: all 300ms ease;
+}
+.container aside .sidebar a.active {
+  background-color: var(--color-light);
+  color: var(--color-primary);
+  margin-left: 0;
+}
+.container aside .sidebar a.active svg {
+  color: var(--color-primary);
+  margin-left: 3rem;
+}
+.container aside .sidebar a.active::before {
+  content: "";
+  position: absolute;
+  background-color: var(--color-primary);
+  width: 6px;
+  height: 100%;
+}
+.container aside .sidebar a:last-child {
+  position: absolute;
+  bottom: 2rem;
+  width: 100%;
+}
+.container aside .sidebar a:hover {
+  color: var(--color-primary);
+}
+.container aside .sidebar a:hover:not(.active) svg {
+  margin-left: 1rem;
+}
+.container aside .sidebar a .message-count {
+  background-color: var(--color-danger);
+  color: var(--color-white);
+  padding: 2px 10px;
+  font-size: 11px;
+  border-radius: var(--border-radius-1);
+  -webkit-border-radius: var(--border-radius-1);
+  -moz-border-radius: var(--border-radius-1);
+  -ms-border-radius: var(--border-radius-1);
+  -o-border-radius: var(--border-radius-1);
+}
+.container main h1 {
+  margin-top: 1.4rem;
+  color: var(--color-dark);
+}
+.container main .date input {
+  background-color: var(--color-info-light);
+  padding: 0.5rem 1rem;
+  margin-top: 1rem;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  border-radius: var(--border-radius-1);
+  -webkit-border-radius: var(--border-radius-1);
+  -moz-border-radius: var(--border-radius-1);
+  -ms-border-radius: var(--border-radius-1);
+  -o-border-radius: var(--border-radius-1);
+}
+.container main .insights {
+  margin: 1rem 0;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.6rem;
+}
+.container main .insights .sales, .container main .insights .expenses, .container main .insights .income {
+  background-color: var(--color-white);
+  border-radius: var(--border-radius-3);
+  -webkit-border-radius: var(--border-radius-3);
+  -moz-border-radius: var(--border-radius-3);
+  -ms-border-radius: var(--border-radius-3);
+  -o-border-radius: var(--border-radius-3);
+  padding: 1.5rem;
+  margin-bottom: 1rem;
+  box-shadow: var(--box-shadow);
+  transition: all 300ms ease;
+  -webkit-transition: all 300ms ease;
+  -moz-transition: all 300ms ease;
+  -ms-transition: all 300ms ease;
+  -o-transition: all 300ms ease;
+}
+.container main .insights .sales:hover, .container main .insights .expenses:hover, .container main .insights .income:hover {
+  box-shadow: none;
+}
+.container main .insights .sales svg, .container main .insights .expenses svg, .container main .insights .income svg {
+  font-size: 2rem;
+  color: var(--color-white);
+  padding: 0.5rem;
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+}
+.container main .insights .sales .middle, .container main .insights .expenses .middle, .container main .insights .income .middle {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+}
+.container main .insights .sales .middle .left, .container main .insights .expenses .middle .left, .container main .insights .income .middle .left {
+  margin-right: 1.5rem;
+}
+.container main .insights .sales .middle .left h3, .container main .insights .expenses .middle .left h3, .container main .insights .income .middle .left h3 {
+  margin-top: 1rem;
+  font-size: 1rem;
+  color: var(--color-dark);
+}
+.container main .insights .sales .middle .left h1, .container main .insights .expenses .middle .left h1, .container main .insights .income .middle .left h1 {
+  margin: 0 0 1rem 0;
+  color: var(--color-dark);
+}
+.container main .insights .sales .middle .progress, .container main .insights .expenses .middle .progress, .container main .insights .income .middle .progress {
+  position: relative;
+  width: 92px;
+  height: 92px;
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+}
+.container main .insights .sales .middle .progress svg, .container main .insights .expenses .middle .progress svg, .container main .insights .income .middle .progress svg {
+  width: 7rem;
+  height: 7rem;
+  background-color: var(--color-white);
+  padding: 0;
+  border-radius: 0;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  -ms-border-radius: 0;
+  -o-border-radius: 0;
+}
+.container main .insights .sales .middle .progress svg circle, .container main .insights .expenses .middle .progress svg circle, .container main .insights .income .middle .progress svg circle {
+  fill: none;
+  stroke: var(--color-primary);
+  stroke-width: 14;
+  stroke-linecap: round;
+  transform: translate(5px, 5px);
+  -webkit-transform: translate(5px, 5px);
+  -moz-transform: translate(5px, 5px);
+  -ms-transform: translate(5px, 5px);
+  -o-transform: translate(5px, 5px);
+}
+.container main .insights .sales .middle .progress .number, .container main .insights .expenses .middle .progress .number, .container main .insights .income .middle .progress .number {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+.container main .insights .sales svg {
+  background-color: var(--color-primary);
+}
+.container main .insights .sales svg circle {
+  stroke-dashoffset: -30;
+  stroke-dasharray: 200;
+}
+.container main .insights .expenses svg {
+  background-color: var(--color-danger);
+}
+.container main .insights .expenses svg circle {
+  stroke-dashoffset: 20;
+  stroke-dasharray: 80;
+}
+.container main .insights .income svg {
+  background-color: var(--color-success);
+}
+.container main .insights .income svg circle {
+  stroke-dashoffset: 35;
+  stroke-dasharray: 110;
+}
+.container main .recent-orders h2 {
+  margin-bottom: 0.8rem;
+  color: var(--color-dark);
+}
+.container main .recent-orders table {
+  text-align: center;
+  box-shadow: var(--box-shadow);
+  width: 100%;
+  background-color: var(--color-white);
+  padding: var(--card-padding);
+  border-radius: var(--card-border-radius);
+  -webkit-border-radius: var(--card-border-radius);
+  -moz-border-radius: var(--card-border-radius);
+  -ms-border-radius: var(--card-border-radius);
+  -o-border-radius: var(--card-border-radius);
+  transition: all 300ms ease;
+  -webkit-transition: all 300ms ease;
+  -moz-transition: all 300ms ease;
+  -ms-transition: all 300ms ease;
+  -o-transition: all 300ms ease;
+}
+.container main .recent-orders table:hover {
+  box-shadow: none;
+}
+.container main .recent-orders table thead th {
+  color: var(--color-dark);
+}
+.container main .recent-orders table tbody td {
+  height: 2.8rem;
+  border-bottom: 1px solid var(--color-light);
+  color: var(--color-dark-variant);
+}
+.container main .recent-orders table tbody tr:last-child td {
+  border: none;
+}
+.container main .recent-orders a {
+  display: block;
+  text-align: center;
+  margin: 1rem auto;
+  color: var(--color-primary);
+}
+.container .right-section .head {
+  margin-top: 1.8rem;
+  display: flex;
+  justify-content: flex-end;
+}
+.container .right-section .head .list {
+  display: none;
+  cursor: pointer;
+}
+.container .right-section .head .change-mode {
+  margin-right: 1.5rem;
+  display: flex;
+  align-items: center;
+  font-size: 1.2rem;
+}
+.container .right-section .head .change-mode span {
+  background-color: #dce1eb;
+  border-radius: 6px;
+  padding: 0 10px;
+  cursor: pointer;
+}
+.container .right-section .head .name {
+  text-align: right;
+  margin-right: 1.5rem;
+}
+.container .right-section h2 {
+  margin: 0.8rem 0;
+  color: var(--color-dark);
+}
+.container .right-section .messages {
+  background-color: var(--color-white);
+  box-shadow: var(--box-shadow);
+  border-radius: var(--card-border-radius);
+  -webkit-border-radius: var(--card-border-radius);
+  -moz-border-radius: var(--card-border-radius);
+  -ms-border-radius: var(--card-border-radius);
+  -o-border-radius: var(--card-border-radius);
+  transition: all 300ms ease;
+  -webkit-transition: all 300ms ease;
+  -moz-transition: all 300ms ease;
+  -ms-transition: all 300ms ease;
+  -o-transition: all 300ms ease;
+  padding: var(--card-padding);
+}
+.container .right-section .messages:hover {
+  box-shadow: none;
+}
+.container .right-section .messages .message {
+  display: grid;
+  grid-template-columns: 2.6rem auto;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+.container .right-section h2.analystics {
+  margin: 2rem 0 0.8rem;
+}
+.container .right-section .sales {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+.container .right-section .sales .box {
+  background-color: var(--color-white);
+  box-shadow: var(--box-shadow);
+  border-radius: var(--border-radius-3);
+  -webkit-border-radius: var(--border-radius-3);
+  -moz-border-radius: var(--border-radius-3);
+  -ms-border-radius: var(--border-radius-3);
+  -o-border-radius: var(--border-radius-3);
+  transition: all 300ms ease;
+  -webkit-transition: all 300ms ease;
+  -moz-transition: all 300ms ease;
+  -ms-transition: all 300ms ease;
+  -o-transition: all 300ms ease;
+  padding: 1.4rem var(--card-padding);
+  display: flex;
+  justify-content: space-evenly;
+}
+.container .right-section .sales .box:hover {
+  box-shadow: none;
+}
+.container .right-section .sales .box .sal {
+  display: flex;
+  gap: 1rem;
+  margin-right: 1rem;
+}
+.container .right-section .sales .box svg {
+  display: block;
+  margin: auto 0;
+  font-size: 1.2rem;
+  color: var(--color-white);
+  padding: 0.5rem;
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+}
+.container .right-section .sales .box:first-child svg {
+  background-color: var(--color-primary);
+}
+.container .right-section .sales .box:nth-child(2) svg {
+  background-color: var(--color-danger);
+}
+.container .right-section .sales .box:nth-child(3) svg {
+  background-color: var(--color-success);
+}
+.container .right-section .sales .box .info-sales h3 {
+  text-transform: uppercase;
+  color: var(--color-dark);
+}
+.container .right-section .sales .box:nth-child(4) {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 2px dashed var(--color-primary);
+  color: var(--color-primary);
+  background-color: transparent;
+}
+.container .right-section .sales .box:nth-child(4) a {
+  color: inherit;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+.container .right-section .sales .box:nth-child(4) a svg {
+  color: inherit;
+}
+
+@media (max-width: 1200px) {
+  .container {
+    width: 96%;
+    grid-template-columns: 7rem auto 32rem;
+  }
+  .container aside .top .logo h2 {
+    display: none;
+  }
+  .container .sidebar h3 {
+    display: none;
+  }
+  .container .sidebar a {
+    width: 5.6rem;
+  }
+  .container aside .sidebar a.active svg {
+    margin-left: 2.4rem;
+  }
+  .container aside .sidebar a:last-child {
+    position: relative;
+    margin-top: 1.8rem;
+  }
+  .container main .insights {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+  .container main .recent-orders {
+    width: 94%;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    margin: 2rem 0 0 8.8rem;
+  }
+  .container main .recent-orders table {
+    width: 83vw;
+  }
+}
+@media (max-width: 767px) {
+  .container {
+    width: 100%;
+    grid-template-columns: 1fr;
+  }
+  .container .right-section .head .list {
+    display: block;
+    position: fixed;
+    left: 30px;
+    font-size: 1.8rem;
+    top: 15px;
+    color: var(--color-dark);
+  }
+  .container aside {
+    position: fixed;
+    background-color: var(--color-white);
+    left: 0;
+    width: 18rem;
+    z-index: 4;
+    height: 100vh;
+    padding: var(--card-padding);
+    box-shadow: 1rem 3rem 4rem var(--color-light);
+    left: -100%;
+    animation: change 0.5s ease forwards;
+    -webkit-animation: change 0.5s ease forwards;
+  }
+  @-webkit-keyframes change {
+    to {
+      left: 0;
+    }
+  }
+  @keyframes change {
+    to {
+      left: 0;
+    }
+  }
+  .container aside .top .logo h2 {
+    display: flex;
+  }
+  .container .sidebar h3 {
+    display: inline;
+  }
+  .container .sidebar a {
+    width: 100%;
+    height: 3.4rem;
+  }
+  .container aside .sidebar a:last-child {
+    position: absolute;
+    bottom: 5rem;
+  }
+  .container aside .top .close {
+    display: inline;
+    cursor: pointer;
+  }
+  .container aside .top .close svg {
+    transform: rotate(45deg);
+    color: var(--color-dark);
+  }
+  .container .right-section .head {
+    position: fixed;
+    align-items: center;
+    margin: 0;
+    z-index: 2;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 4.6rem;
+    padding: 0 0.8rem;
+    background-color: var(--color-white);
+    box-shadow: 0rem 1rem 1rem var(--color-light);
+  }
+  .right-section .head .name {
+    display: none;
+  }
+  .right-section {
+    padding: 0 2rem;
+    margin-bottom: 3rem;
+  }
+  main {
+    margin-top: 6rem;
+    padding: 0 2rem;
+  }
+  .container main .recent-orders {
+    position: relative;
+    width: 100%;
+    margin: 3rem 0 0 0;
+  }
+  .container main .recent-orders table {
+    width: 100%;
+    margin: 0;
+  }
+}
+/* End Side Bar *//*# sourceMappingURL=style.css.map */
